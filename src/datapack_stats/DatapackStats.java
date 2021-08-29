@@ -97,6 +97,9 @@ public class DatapackStats {
 				case "worldgen":
 					getSubFiles(e,EFileTypes.WORLDGEN);
 					break;
+				case "item_modifiers":
+					getSubFiles(e,EFileTypes.ITEM_MOD);
+					break;
 				default:
 					getTopFiles(e);
 					break;

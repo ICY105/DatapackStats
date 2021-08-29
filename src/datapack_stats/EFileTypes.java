@@ -7,6 +7,7 @@ public enum EFileTypes {
 	STRUCTURES		(3,  null, ".nbt", 			"Structures"),
 	LOOT_TABLES		(4,  null, ".json", 		"Loot Tables"),
 	RECIPES			(5,  null, ".json", 		"Recipes"),
+	ITEM_MOD		(25, null, ".json", 		"Item Modifiers"),
 	TAGS			(6,  null, ".json", 		"Tags"),
 	TAGS_BLOCK		(7,  TAGS, ".json", 		"Blocks"),
 	TAGS_ENTITY		(8,  TAGS, ".json", 		"Entity Types"),
