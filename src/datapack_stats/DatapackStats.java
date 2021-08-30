@@ -6,21 +6,31 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 public class DatapackStats {
 
 	public static void main(String[] args) {		
 		final DatapackStats stats = new DatapackStats();
-
-		final File mcmeta = new File("pack.mcmeta");
 		final File data = new File("data");
 		
-		if(mcmeta.exists() && data.exists()) {
+		if(data.exists()) {
 			stats.getTopFiles(data);
 			new StatsFrame(stats);
 		} else {
-			JOptionPane.showMessageDialog(null, "No datapack file system detected.");
+			int out = JOptionPane.showConfirmDialog(null, "No datapack file system detected.\nWould you like to select it manually?");
+			if(out == 0) {
+				final File currentDir = new File(System.getProperty("user.dir"));
+				final JFileChooser chooser = new JFileChooser(currentDir);
+				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				out = chooser.showOpenDialog(null);
+				if(out == 0) {
+					File selected = chooser.getSelectedFile();
+					stats.getTopFiles(selected);
+					new StatsFrame(stats);
+				}
+			}
 		}
 	}
 	
