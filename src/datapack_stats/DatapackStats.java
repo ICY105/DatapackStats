@@ -212,7 +212,7 @@ public class DatapackStats {
 				functionStats[0]++;
 				if(in.startsWith("#", 0)) {
 					functionStats[2]++;
-				} else if(!in.isBlank()) {
+				} else if(!in.trim().isEmpty()) {
 					functionStats[1]++;
 				}
 				
@@ -241,7 +241,7 @@ public class DatapackStats {
 				}
 				
 				//Command stats	
-				if(!in.isBlank() && !in.startsWith("#", 0)) {
+				if(!in.trim().isEmpty() && !in.startsWith("#", 0)) {
 					int index = in.indexOf(' ');
 					if(index == -1)
 						addCommand(in);
